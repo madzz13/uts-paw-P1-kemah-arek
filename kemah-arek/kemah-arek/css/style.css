@@ -1,0 +1,106 @@
+/* Kemah Arek - style.css (dimuat setelah Bootstrap 5.3) */
+:root{
+  --bg:#edf2f0; --surface:#ffffff; --text:#14231c; --muted:#40524a;
+  --primary:#1d4d3b; --on-primary:#ffffff; --accent:#ffc247; --on-accent:#14231c;
+  --line:#c3d1ca; --danger:#a4161a;
+  --font-head:"Bricolage Grotesque",system-ui,sans-serif;
+  --font-body:"Public Sans",system-ui,sans-serif;
+  --space:1rem; --radius:.75rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1612; --surface:#16231d; --text:#eaf1ed; --muted:#b4c4bb;
+    --primary:#8fd8b0; --on-primary:#0d1612; --accent:#ffc247; --on-accent:#14231c;
+    --line:#2f443a; --danger:#ff8d8f;}
+}
+*,*::before,*::after{box-sizing:border-box}
+body{font-family:var(--font-body);font-size:1rem;line-height:1.6;background:var(--bg);color:var(--text);
+  --bs-body-bg:var(--bg);--bs-body-color:var(--text);--bs-border-color:var(--line);--bs-link-color:var(--primary);--bs-link-hover-color:var(--text)}
+h1,h2,h3,.navbar-brand{font-family:var(--font-head);line-height:1.2}
+h1{font-size:clamp(1.9rem,1.2rem + 3.5vw,3.25rem);font-weight:800}
+h2{font-size:clamp(1.4rem,1.1rem + 1.5vw,2rem)}
+a{color:var(--primary)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.25rem}
+.skip-link{position:absolute;left:var(--space);top:-4rem;background:var(--accent);color:var(--on-accent);padding:.75rem 1rem;z-index:2000;border-radius:var(--radius)}
+.skip-link:focus{top:var(--space)}
+/* header + navbar (Bootstrap navbar, warna lewat token) */
+.site-header{position:sticky;top:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--line)}
+.navbar{--bs-navbar-color:var(--text);--bs-navbar-hover-color:var(--primary);--bs-navbar-active-color:var(--primary);--bs-navbar-toggler-border-color:var(--line);--bs-navbar-brand-color:var(--primary);--bs-navbar-brand-hover-color:var(--primary)}
+.navbar-brand{font-weight:800;font-size:1.4rem;min-height:2.75rem;display:inline-flex;align-items:center}
+.navbar-toggler{min-width:2.75rem;min-height:2.75rem;color:var(--text)}
+.navbar-toggler-icon{filter:none;background-color:transparent}
+.navbar .nav-link{min-height:2.75rem;display:flex;align-items:center;padding-inline:.75rem}
+.navbar .nav-link[aria-current="page"]{font-weight:600;box-shadow:inset 0 -3px 0 var(--accent)}
+.navbar-nav{gap:.25rem}
+/* tombol */
+.btn{min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.btn-primary{--bs-btn-bg:var(--primary);--bs-btn-border-color:var(--primary);--bs-btn-color:var(--on-primary);--bs-btn-hover-bg:var(--text);--bs-btn-hover-border-color:var(--text);--bs-btn-hover-color:var(--bg);--bs-btn-active-bg:var(--text);--bs-btn-active-color:var(--bg)}
+.btn-outline-primary{--bs-btn-color:var(--primary);--bs-btn-border-color:var(--primary);--bs-btn-hover-bg:var(--primary);--bs-btn-hover-color:var(--on-primary);--bs-btn-hover-border-color:var(--primary)}
+.btn-accent{background:var(--accent);color:var(--on-accent);border:0}
+.btn-accent:hover{background:var(--text);color:var(--bg)}
+/* kartu, tabel */
+.card{--bs-card-bg:var(--surface);--bs-card-color:var(--text);--bs-card-border-color:var(--line);--bs-card-cap-bg:transparent;--bs-card-border-radius:var(--radius)}
+.table{--bs-table-bg:transparent;--bs-table-color:var(--text);--bs-table-border-color:var(--line)}
+caption{color:var(--muted)}
+/* layout */
+.bagian{padding-block:2.5rem}
+.lead{color:var(--muted)}
+.hero{display:grid;gap:1.5rem;padding-block:2.5rem;grid-template-areas:"teks" "gambar"}
+.hero-teks{grid-area:teks;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.hero-gambar{grid-area:gambar;margin:0}
+.hero-gambar img{max-width:100%;height:auto;border-radius:var(--radius)}
+.hero-gambar figcaption{color:var(--muted);font-size:.875rem;margin-top:.5rem}
+.statistik{background:var(--primary);color:var(--on-primary);padding-block:2rem}
+.stat-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin:0}
+.stat-grid dt{font-weight:400}
+.stat-grid dd{font-family:var(--font-head);font-size:clamp(1.5rem,1rem + 2vw,2.25rem);font-weight:800;margin:0}
+.testi blockquote{font-size:1.125rem}
+.cta{background:var(--surface);border-block:1px solid var(--line);padding-block:3rem;text-align:center}
+.galeri{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.item-card{position:relative}
+.item-card .card-body{display:flex;flex-direction:column;gap:.5rem;height:100%}
+.item-card .btn{margin-top:auto}
+.item-card img{height:auto}
+.harga{font-weight:600;margin:0}
+.harga span{font-weight:400;color:var(--muted)}
+.badge-promo{position:absolute;top:.75rem;right:.75rem;background:var(--accent);color:var(--on-accent);font-weight:600;padding:.25rem .75rem;border-radius:2rem;z-index:1}
+.tim li{margin-bottom:.5rem}
+iframe{width:100%;max-width:100%;height:20rem;border:1px solid var(--line);border-radius:var(--radius)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.75rem 1rem;margin-bottom:.75rem}
+summary{cursor:pointer;font-weight:600;min-height:2.75rem;display:flex;align-items:center}
+.layout-artikel{display:grid;gap:2rem;grid-template-areas:"artikel" "samping"}
+.layout-artikel article{grid-area:artikel}
+.layout-artikel aside{grid-area:samping;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;align-self:start}
+.layout-artikel li::marker{color:var(--primary)}
+/* form */
+.form-halaman{max-width:42rem}
+.form-arek{display:flex;flex-direction:column;gap:1.25rem}
+.form-arek .form-control,.form-arek .form-select{min-height:2.75rem;background:var(--surface);color:var(--text);border-color:var(--muted)}
+.form-arek legend{font-size:1rem;margin-bottom:.5rem;float:none;width:auto}
+.form-arek fieldset{border:1px solid var(--line);border-radius:var(--radius);padding:1rem}
+.form-text{color:var(--muted)}
+.form-check-input{width:1.25rem;height:1.25rem}
+.form-check{min-height:2.75rem;display:flex;align-items:center;gap:.5rem;padding-left:0}
+.form-check .form-check-input{margin:0;float:none}
+.form-arek :user-invalid{border-color:var(--danger);box-shadow:0 0 0 .2rem color-mix(in srgb,var(--danger) 30%,transparent)}
+.form-arek :user-invalid~.form-text::before{content:"Periksa isian ini. ";color:var(--danger);font-weight:600}
+/* footer */
+.site-footer{background:var(--surface);border-top:1px solid var(--line);padding-block:2rem;color:var(--muted)}
+.site-footer p{margin-bottom:.5rem}
+.navbar-brand::before{content:"\25B2";color:var(--accent);margin-right:.4rem;font-size:.9em}
+/* breakpoint mobile-first */
+@media (min-width:40em){
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:64em){
+  .hero{grid-template-columns:1fr 1.1fr;grid-template-areas:"teks gambar";align-items:center;gap:3rem}
+  .stat-grid{grid-template-columns:repeat(4,1fr)}
+  .layout-artikel{grid-template-columns:2fr 1fr;grid-template-areas:"artikel samping"}
+  .layout-artikel aside{position:sticky;top:6rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn,.nav-link{transition:background-color .2s,color .2s}
+  .item-card:hover{transform:translateY(-3px);transition:transform .2s}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none;transition:none;scroll-behavior:auto}
+}
